@@ -1,0 +1,128 @@
+<div id="registerFormBlock">
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="tryRegister(registerForm.value)"
+    class="text-center border border-light p-5"
+    id="registerForm"
+  >
+    <p class="h4 mb-4" style="color: whitesmoke">Sign Up</p>
+    <div class="form-row mb-4">
+      <div class="col-6">
+        <input
+          type="text"
+          id= "registerFormUsername"
+          placeholder="Username"
+          formControlName="username"
+          class="form-control"
+        />
+        <div
+          *ngIf="registerForm.get('username').touched && !registerForm.get('username').valid"
+          class="has-error"
+        >
+          Username is required!
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row mb-4">
+      <div class="col">
+        <input
+          type="text"
+          formControlName="firstName"
+          id="registerFormFirstName"
+          class="form-control"
+          placeholder="First name"
+        />
+        <div
+          *ngIf="registerForm.get('firstName').touched && !registerForm.get('firstName').valid"
+          class="has-error"
+        >
+          First Name is required!
+        </div>
+      </div>
+      <div class="col">
+        <input
+          type="text"
+          formControlName="lastName"
+          id="registerFormLastName"
+          class="form-control"
+          placeholder="Last name"
+        />
+        <div
+          *ngIf="registerForm.get('lastName').touched && !registerForm.get('lastName').valid"
+          class="has-error"
+        >
+          Last Name is required!
+        </div>
+      </div>
+    </div>
+    <div class="form-row mb-4">
+      <div class="col">
+        <input
+          type="email"
+          formControlName="email"
+          id="registerFormEmail"
+          class="form-control"
+          placeholder="E-mail"
+        />
+        <div
+          *ngIf="registerForm.get('email').touched && !registerForm.get('email').valid">
+        <div class="has-error" *ngIf="_registerForm.email.errors.required">E-mail is required!</div>
+        <div *ngIf="_registerForm.email.errors.email" class="has-error">E-mail must be a verified address!</div>
+          
+        </div>
+      </div>
+      <div class="col">
+        <input
+          type="email"
+          formControlName="confirmEmail"
+          id="registerFormConfirmEmail"
+          class="form-control"
+          placeholder="Confirm E-mail"
+        />
+        <div
+          *ngIf="registerForm.get('confirmEmail').touched && !registerForm.get('confirmEmail').valid">
+        <div class="has-error" *ngIf="_registerForm.confirmEmail.errors.mustMatch">E-mails don't match!</div>
+        <div class="has-error" *ngIf="_registerForm.confirmEmail.errors.required">Confirming E-mail is required!</div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="form-row mb-4">
+      <div class="col">
+        <input
+          type="password"
+          formControlName="password"
+          id="registerFormPassword"
+          class="form-control"
+          placeholder="Password"
+        />
+        <div
+          *ngIf="registerForm.get('password').touched && !registerForm.get('password').valid">
+        <div class="has-error" *ngIf="_registerForm.password.errors.required">Password is required!</div>
+        <div *ngIf="_registerForm.password.errors.minlength" class="has-error">Password must be at least 4 characters!</div>
+        </div>
+      </div>
+      <div class="col">
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          id="registerFormConfirmPassword"
+          class="form-control"
+          placeholder="Confirm Password"
+        />
+        <div
+          *ngIf="registerForm.get('confirmPassword').touched && !registerForm.get('confirmPassword').valid">
+          <div *ngIf="_registerForm.confirmPassword.errors.required" class="has-error">Confirm password is required!</div>
+          <div *ngIf="_registerForm.confirmPassword.errors.mustMatch" class="has-error">Passwords don't match!</div>
+        </div>
+      </div>
+    </div>
+    <label class="error">{{errorMessage}}</label>
+     <label class="success">{{successMessage}}</label>
+    <button class="btn btn-primary" type="submit">Submit</button>
+    <div class="col">
+        <a routerLink= "login">Already a user?</a>
+    </div>
+  </form>
+</div>

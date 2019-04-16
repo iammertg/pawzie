@@ -27,7 +27,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/assets/fonts/covesFont.scss"
+
             ],
             "scripts": [],
             "es5BrowserSupport": true

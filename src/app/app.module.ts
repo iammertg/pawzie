@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './home/register/register.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { SloganComponent } from './home/slogan/slogan.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     RegisterComponent,
     HomeComponent,
     MainPageComponent,
+    SloganComponent,
   ],
   imports: [
     BrowserModule,

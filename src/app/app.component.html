@@ -1,10 +1,7 @@
-<div class="appDiv">
+<!-- <div class="appDiv">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <img src="../../assets/img/logo_transparent.png" style="height:70px; width: 60px;" alt="">
         <a class="navbar-brand" href="#">petTogether</a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span> -->
-        <!-- </button> -->
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -25,4 +22,18 @@
       
     <router-outlet></router-outlet>
     
+</div> -->
+
+<div class="d-flex flex-column"style="flex-grow: 1">
+  
+      <div id="navbarContainer" class="d-flex align-items-center" style="flex-grow: 2;">
+          <a routerLink="" style="margin-left: 15px; color: white">Home</a>
+          <a routerLink="login" style="margin-left: 15px; color: white">Login</a>
+          
+        </div>
+        <div class="d-flex align-items-center justify-content-center" style="flex-grow: 7;">
+            <router-outlet></router-outlet>   
+        </div>
+ 
+       
 </div>

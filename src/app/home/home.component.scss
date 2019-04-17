@@ -1,12 +1,9 @@
-#app-slogan{
-    margin-left: 45px;
-    margin-top: 10px;
-    
-}
-h1{
-    //box-shadow:  0px 0px 5px 1px rgba(0,0,0,0.75);
-    margin-bottom: -15px;
-    border-radius: 5px;
-    width: 150px;
-    font-size: 45px;
+#landingPageContainer{
+    height:600px;
+    width:900px;
+    background-image: linear-gradient(to left bottom, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);   
+    z-index: 11;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px 0px rgba(235,235,235,1);
 }

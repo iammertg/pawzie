@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-      - setup_remote_docker:
+      -  aws-s3:
           from: dist
           to: 's3://pawzie/'
           arguments: |
@@ -27,7 +27,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build:staging
-      - setup_remote_docker:
+      - aws-s3:
           from: dist
           to: 's3://pawzie/'
           arguments: |

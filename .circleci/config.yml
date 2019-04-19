@@ -1,7 +1,7 @@
 version: 2
 jobs:
     build:
-        working_directory: ~/project
+        working_directory: ~/projects/petTogether
         docker:
             - image: circleci/node:chakracore-8.11-browsers-legacy
         steps:

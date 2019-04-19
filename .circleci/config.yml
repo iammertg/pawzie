@@ -38,7 +38,7 @@ jobs:
     deploy:
         docker:
             - image: circleci/node:chakracore-8.11-browsers-legacy
-        working_directory: ~/project
+        working_directory: ~/projects/petTogether
         steps:
             - run:
                 name: Show current branch

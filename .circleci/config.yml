@@ -1,50 +1,68 @@
 version: 2
-orbs:
-  aws-s3: circleci/aws-s3@1.0.4
 jobs:
-  build:
-    docker:
-      - image: circleci/python:2.7-node
-    environment:
-      AWS_REGION: eu-central-1
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm run build
-      -  aws-s3:
-          from: dist
-          to: 's3://pawzie/'
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=86400" \
-          overwrite: true
-  build-staging:
-    docker:
-      - image: circleci/python:2.7-node
-    environment:
-      AWS_REGION: us-east-1
-    steps:
-      - checkout
-      - run: npm install
-      - run: npm run build:staging
-      - aws-s3:
-          from: dist
-          to: 's3://pawzie/'
-          arguments: |
-            --acl public-read \
-            --cache-control "max-age=86400" \
-          overwrite: true
+    build:
+        working_directory: ~/project
+        docker:
+            - image: circleci/node:chakracore-8.11-browsers-legacy
+        steps:
+            - checkout
+            - run:
+                name: Show current branch
+                command: echo ${CIRCLE_BRANCH}
+            - run:
+                name: Show current directory
+                command: pwd
+            - restore_cache:
+                keys:
+                    - v1-dependencies-{{ checksum "package.json" }}
+            - run:
+                name: Install dependencies
+                command: npm install
+            - save_cache:
+                key: v1-dependencies-{{ checksum "package.json" }}
+                paths:
+                    - node_modules
+            - run:
+                name: Linting
+                command: npm run lint
+            - run:
+                name: Testing
+                command: npm run test
+            - run:
+                name: Building
+                command: npm run build
+            - save_cache:
+                key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+                paths:
+                    - dist
+                    - package.json
+                    - firebase.json
+                    - .firebaserc
+    deploy:
+        docker:
+            - image: circleci/node:chakracore-8.11-browsers-legacy
+        working_directory: ~/project
+        steps:
+            - run:
+                name: Show current branch
+                command: echo ${CIRCLE_BRANCH}
+            - restore_cache:
+                key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+            - run:
+                name: Install Firebase
+                command: npm install --save-dev firebase-tools
+            - run:
+                name: Deploy Master to Firebase
+                command: npm run firebase-deploy -- --token=$FIREBASE_DEPLOY_TOKEN
+
 workflows:
-  version: 2
-  build:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: master
-  build-staging:
-    jobs:
-      - build-staging:
-          filters:
-            branches:
-              only: develop
+    version: 2
+    -deploy:
+        jobs:
+        - build
+        - deploy:
+            requires:
+                - build
+            filters:
+                branches:
+                    only: master

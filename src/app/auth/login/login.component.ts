@@ -18,11 +18,11 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       username: [''],
       password: ['']
-    })
+    });
   }
 
   onSubmit() {
-    this.router.navigate(["main-page"])
+    this.router.navigate(['main-page']);
   }
 
 }

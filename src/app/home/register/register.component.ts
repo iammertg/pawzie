@@ -10,12 +10,12 @@ import { AuthService } from '../../services/authService';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  registerForm: FormGroup
+  registerForm: FormGroup;
   errorMessage: string;
   successMessage: string;
 
   constructor(
-    private formBuilder: FormBuilder, 
+    private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService) { }
@@ -33,13 +33,13 @@ export class RegisterComponent implements OnInit {
       confirmPassword: ['', [Validators.required, Validators.minLength(4)]],
     },
     {
-      validators: [MustMatch("email", "confirmEmail"), MustMatch("password", "confirmPassword")]
+      validators: [MustMatch('email', 'confirmEmail'), MustMatch('password', 'confirmPassword')]
     }
     );
 
     this.registerForm.valueChanges.subscribe(res => {
-      console.log(this.registerForm)
-    })
+      console.log(this.registerForm);
+    });
   }
 
   get _registerForm(): {[key: string]: AbstractControl} {
@@ -54,17 +54,17 @@ export class RegisterComponent implements OnInit {
   //   }
   // }
 
-  tryRegister(value){
+  tryRegister(value) {
     this.authService.doRegister(value)
     .then(res => {
-      this.router.navigate(["login"])
-      this.errorMessage = "";
-      this.successMessage = "Your account has been created";
+      this.router.navigate(['login']);
+      this.errorMessage = '';
+      this.successMessage = 'Your account has been created';
     }, err => {
       console.log(err);
       this.errorMessage = err.message;
-      this.successMessage = "";
-    })
+      this.successMessage = '';
+    });
   }
 
 }

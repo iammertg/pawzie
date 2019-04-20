@@ -14,14 +14,14 @@ const routes: Routes = [{
     path: 'register',
     component: RegisterComponent,
    // TO DO
-    // canActivate: [AuthGuard] 
+    // canActivate: [AuthGuard]
 
   },
   {
     path: 'login',
     component: LoginComponent,
     // TO DO
-    //canActivate: [AuthGuard] TO DO 
+    // canActivate: [AuthGuard] TO DO
   },
   {
     path: 'main-page',

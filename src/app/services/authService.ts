@@ -7,15 +7,15 @@ import { Injectable } from '@angular/core';
   })
 
 export class AuthService {
-    constructor(public afAuth: AngularFireAuth){}
+    constructor(public afAuth: AngularFireAuth) {}
 
-    doRegister(value){
+    doRegister(value) {
         return new Promise<any>((resolve, reject) => {
           firebase.auth().createUserWithEmailAndPassword(value.email, value.password)
           .then(res => {
             resolve(res);
-          }, err => reject(err))
-        })
+          }, err => reject(err));
+        });
       }
 }
 

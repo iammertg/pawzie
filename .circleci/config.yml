@@ -22,9 +22,12 @@ jobs:
                 key: v1-dependencies-{{ checksum "package.json" }}
                 paths:
                     - node_modules
-            # - run:
-            #     name: Testing
-            #     command: npm run test
+            - run:
+                name: Linting
+                command: npm run lint
+            - run:
+                name: Testing
+                command: npm run test
             - run:
                 name: Building
                 command: npm run build

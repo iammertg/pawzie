@@ -30,19 +30,30 @@
     class="d-flex flex-row align-items-center justify-content-between"
     style="height: 80px;"
   >
-  <div class="d-flex flex-row">
+    <div class="d-flex flex-row">
       <div>
-          <button
-            id="navbarButton"
-            routerLink=""
-            style="margin-left: 15px; color: rgba(79, 30, 172, 0.918);"
-          >
-            Home
-          </button>
-        </div>
-        <div *ngIf="authService.user$ | async as user; else login">
-          <button id="navbarButton" routerLink="login" style="margin-left: 15px; color:rgba(79, 30, 172, 0.918);" class="btn btn-primary" (click)="authService.signOut()">Sign Out</button>
-          <!-- <ng-template #login>
+        <button
+          id="navbarButton"
+          routerLink=""
+          style="margin-left: 15px; color: rgba(79, 30, 172, 0.918);"
+        >
+          Home
+        </button>
+      </div>
+      <div *ngIf="(authService.user$ | async) as user; else login">
+        <button
+          id="navbarButton"
+          routerLink="login"
+          style="margin-left: 15px; color:rgba(79, 30, 172, 0.918);"
+          class="btn btn-primary"
+          (click)="authService.signOut()"
+        >
+        <span>
+            Sign Out
+        </span>
+          
+        </button>
+        <!-- <ng-template #login>
               <button
               id="navbarButton"
               routerLink="login"
@@ -51,10 +62,9 @@
               Login
             </button>
                   </ng-template> -->
-          
-        </div>
-  </div>
-    
+      </div>
+    </div>
+
     <div>
       <img id="logo" src="../assets/img/logo.png" />
     </div>

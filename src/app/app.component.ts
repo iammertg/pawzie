@@ -8,7 +8,7 @@ import { AuthService } from './services/authService';
 })
 export class AppComponent {
   title = 'petTogether';
-  constructor(private authService: AuthService){
-    
+  constructor(private authService: AuthService) {
+
   }
 }

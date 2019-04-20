@@ -10,6 +10,7 @@
     "test:ci": "jest --runInBand",
     "test:coverage": "jest --coverage",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
     "e2e": "ng e2e",
     "firebase-deploy": "firebase deploy"
   },

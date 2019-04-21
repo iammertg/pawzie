@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/authService';
 
@@ -14,17 +14,20 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService) { }
+    public authService: AuthService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: [''],
+      email: [''],
       password: ['']
     });
   }
 
   onSubmit() {
     this.router.navigate(['main-page']);
+  }
+  get _loginForm(): {[key: string]: AbstractControl} {
+    return this.loginForm.controls;
   }
 
 }

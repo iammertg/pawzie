@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { AuthService } from './services/authService';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { AuthService } from './services/authService';
 })
 export class AppComponent {
   title = 'pawzie';
-  constructor(private authService: AuthService) {
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+    public ngZone: NgZone) {
 
   }
 }

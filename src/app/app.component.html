@@ -40,29 +40,6 @@
           Home
         </button>
       </div>
-      <div *ngIf="(authService.user$ | async) as user; else login">
-        <button
-          id="navbarButton"
-          routerLink="login"
-          style="margin-left: 15px; color:rgba(79, 30, 172, 0.918);"
-          class="btn btn-primary"
-          (click)="authService.signOut()"
-        >
-        <span>
-            Sign Out
-        </span>
-          
-        </button>
-        <!-- <ng-template #login>
-              <button
-              id="navbarButton"
-              routerLink="login"
-              style="margin-left: 15px; color:rgba(79, 30, 172, 0.918);"
-            >
-              Login
-            </button>
-                  </ng-template> -->
-      </div>
     </div>
 
     <div>

@@ -1,7 +1,6 @@
 <div class="animated fadeIn" id="loginFormContainer">
   <form
     [formGroup]="loginForm"
-    (ngSubmit)="onSubmit()"
     class="text-center border border-light p-5"
     id="loginForm"
   >
@@ -11,10 +10,10 @@
         <div class="col">
           <input
             type="text"
-            formControlName="username"
+            formControlName="email"
             id="loginFormUsername"
             class="form-control"
-            placeholder="Username"
+            placeholder="Email"
           />
         </div>
       </div>
@@ -29,13 +28,25 @@
           />
         </div>
       </div>
-      <button id="loginButton" class="btn btn-primary" type="submit">Login</button>
+      <button
+        id="loginButton"
+        class="btn btn-primary"
+        type="button"
+        (click)="
+          authService.SignIn(_loginForm.email.value, _loginForm.password.value)
+        "
+      >
+        Login
+      </button>
     </div>
-    <div *ngIf="(authService.user$ | async) as user; else login">
+    <div class="formGroup">
+      <span class="or"><span class="orInner">Or</span></span>
+    </div>
+    <div *ngIf="authService.userData as user; else login">
       <button
         id="googleLogin"
         class="btn btn-primary"
-        (click)="authService.signOut()"
+        (click)="authService.SignOut()"
       >
         Sign Out
       </button>
@@ -46,7 +57,7 @@
         type="button"
         id="googleLogin"
         class="google-button"
-        (click)="authService.googleSignin()"
+        (click)="authService.GoogleAuth()"
       >
         <span>
           <svg viewBox="0 0 366 372" xmlns="http://www.w3.org/2000/svg">
@@ -74,5 +85,14 @@
         <span class="google-button__text">Sign in with Google</span>
       </button>
     </ng-template>
+    <div class="forgotPassword" style="margin: 3%">
+      <a routerLink="/forgot-password">Forgot Password?</a>
+    </div>
+    <div class="redirectToLogin" style="margin: 3%">
+      <a routerLink= ""
+        >Don't have an account?
+        </a
+      >
+    </div>
   </form>
 </div>

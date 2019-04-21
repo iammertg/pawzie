@@ -4,36 +4,36 @@ import { RegisterComponent } from './home/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { AuthGuard } from './services/services.guard';
+import { ForgotPasswordComponent } from './auth/login/forgot-password/forgot-password.component';
+// import { AuthGuard } from './services/services.guard';
 
-const routes: Routes = [{
-  path: '',
-  component: HomeComponent,
-  pathMatch: 'full'
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full'
   },
   {
     path: 'register',
-    component: RegisterComponent,
-   // TO DO
-    // canActivate: [AuthGuard]
-
+    component: RegisterComponent
   },
   {
     path: 'login',
     component: LoginComponent,
-    // TO DO
-    // canActivate: [AuthGuard] TO DO
   },
   {
     path: 'main-page',
-    component: MainPageComponent,
-    canActivate:[AuthGuard]
+    component: MainPageComponent
+    // canActivate:[AuthGuard]
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent,
   }
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

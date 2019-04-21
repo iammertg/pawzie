@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './home/register/register.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { SloganComponent } from './home/slogan/slogan.component';
+import { AuthService } from './services/authService';
+import { ForgotPasswordComponent } from './auth/login/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { SloganComponent } from './home/slogan/slogan.component';
     HomeComponent,
     MainPageComponent,
     SloganComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { SloganComponent } from './home/slogan/slogan.component';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule // imports firebase/auth, only needed for auth features
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

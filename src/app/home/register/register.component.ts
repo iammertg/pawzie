@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private authService: AuthService) { }
+    public authService: AuthService) { }
 
   ngOnInit() {
 
@@ -54,17 +54,17 @@ export class RegisterComponent implements OnInit {
   //   }
   // }
 
-  tryRegister(value) {
-    this.authService.doRegister(value)
-    .then(res => {
-      this.router.navigate(['login']);
-      this.errorMessage = '';
-      this.successMessage = 'Your account has been created';
-    }, err => {
-      console.log(err);
-      this.errorMessage = err.message;
-      this.successMessage = '';
-    });
-  }
+  // tryRegister(value) {
+  //   this.authService.doRegister(value)
+  //   .then(res => {
+  //     this.router.navigate(['login']);
+  //     this.errorMessage = '';
+  //     this.successMessage = 'Your account has been created';
+  //   }, err => {
+  //     console.log(err);
+  //     this.errorMessage = err.message;
+  //     this.successMessage = '';
+  //   });
+  // }
 
 }

@@ -15,6 +15,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { SloganComponent } from './home/slogan/slogan.component';
 import { AuthService } from './services/authService';
 import { ForgotPasswordComponent } from './auth/login/forgot-password/forgot-password.component';
+import {SwipeCardLibModule} from 'ng-swipe-card';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ForgotPasswordComponent } from './auth/login/forgot-password/forgot-pas
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule // imports firebase/auth, only needed for auth features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    SwipeCardLibModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

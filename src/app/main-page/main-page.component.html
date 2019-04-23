@@ -1,1 +1,31 @@
-<h1 style="color: white">UPDATE!!1</h1>
+<div class="d-flex justify-content-center align-items-start container">
+  <button (click)="reset()">reset</button>
+  <sw-card-wrapper #cardWrapper>
+    <div
+      class="card"
+      *ngFor="let card of cards; let index = index"
+      swSwipeable
+      [width]="370"
+      [height]="500"
+      [orientation]="'xy'"
+      (swiped)="removeBy(index)"
+    >
+      {{ card }}
+    </div>
+    <div
+      style="width: 80%; margin: 7%"
+      class="d-flex flex-row align-items-center justify-content-between"
+    >
+      <div class="dislikeButtonContainer">
+        <button class="dislikeButton" (click)="cardWrapper.dislike()">
+          <img src="https://img.icons8.com/ios/50/000000/dislike.png" />
+        </button>
+      </div>
+      <div class="likeButtonContainer">
+        <button class="likeButton" (click)="cardWrapper.like()">
+          <img src="https://img.icons8.com/ios/50/000000/hearts.png" />
+        </button>
+      </div>
+    </div>
+  </sw-card-wrapper>
+</div>

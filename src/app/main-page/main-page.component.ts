@@ -6,10 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+  private readonly LIST = Array.from(new Array(10)).map((_, i) => i + 1);
 
-  constructor() { }
+  public cards: number[];
 
-  ngOnInit() {
+  constructor() {
+    this.cards = [...this.LIST];
   }
 
+  public reset() {
+    if (!this.cards.includes(10)) {
+    this.cards = [...this.LIST];
+    }
+
+    return this.cards;
+  }
+
+  public removeBy(index: number): void {
+    this.cards.splice(index, 1);
+  }
+  ngOnInit() {
+  }
 }

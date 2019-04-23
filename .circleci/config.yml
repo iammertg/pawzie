@@ -23,6 +23,9 @@ jobs:
                 paths:
                     - node_modules
             - run:
+                name: Start
+                command: npm start
+            - run:
                 name: Linting
                 command: npm run lint:fix
             - run:

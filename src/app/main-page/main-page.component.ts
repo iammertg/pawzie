@@ -14,10 +14,8 @@ export class MainPageComponent implements OnInit {
     this.cards = [...this.LIST];
   }
 
-  public reset() {
+  public reset(): void {
     this.cards = [...this.LIST];
-
-    return this.cards;
   }
 
   public removeBy(index: number): void {

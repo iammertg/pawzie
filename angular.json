@@ -29,7 +29,8 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/scss/bootstrap.scss",
-              "src/assets/fonts/covesFont.scss"
+              "src/assets/fonts/covesFont.scss",
+              "node_modules/ng-swipe-card/style/styles.scss"
 
             ],
             "scripts": ["./node_modules/hammerjs/hammer.min.js"],

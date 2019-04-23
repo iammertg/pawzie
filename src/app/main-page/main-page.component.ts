@@ -15,9 +15,7 @@ export class MainPageComponent implements OnInit {
   }
 
   public reset() {
-    if (!this.cards.includes(10)) {
     this.cards = [...this.LIST];
-    }
 
     return this.cards;
   }

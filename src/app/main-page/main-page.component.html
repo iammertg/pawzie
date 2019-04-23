@@ -1,5 +1,4 @@
-<div class="d-flex justify-content-center align-items-start container">
-  <button (click)="reset()">reset</button>
+<div class="d-flex justify-content-center align-items-center container">
   <sw-card-wrapper #cardWrapper>
     <div
       class="card"
@@ -13,13 +12,16 @@
       {{ card }}
     </div>
     <div
-      style="width: 80%; margin: 7%"
+      style="margin-top: 5%"
       class="d-flex flex-row align-items-center justify-content-between"
     >
       <div class="dislikeButtonContainer">
         <button class="dislikeButton" (click)="cardWrapper.dislike()">
           <img src="https://img.icons8.com/ios/50/000000/dislike.png" />
         </button>
+      </div>
+      <div>
+            <button style="margin: 15px"  class="btn btn-light" (click)="reset()">reset</button>
       </div>
       <div class="likeButtonContainer">
         <button class="likeButton" (click)="cardWrapper.like()">

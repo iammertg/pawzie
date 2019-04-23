@@ -24,8 +24,7 @@
 }
 
 .likeButton:after {
-  content: "";
-  background: #1abc9c;
+  background: #bb0000;
   display: block;
   position: absolute;
   padding-top: 300%;
@@ -34,18 +33,81 @@
   margin-top: -120%;
   opacity: 0;
   transition: all 0.8s;
+  width: 0;
+  height: 0;
+  right: 0;
+  top: 0;
+  border-radius: 0 5px 5px 0;  
 }
 
-.likeButton:active:after {
+.likeButton:active {
   padding: 0;
   margin: 0;
   opacity: 1;
   transition: 0s;
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+  top: 3px;
 }
 
 .likeButton:focus {
   outline: 0;
 }
+#resetButton {
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 4px;
+  position: relative;
+  background-color: #e3ecea;
+  border: none;
+  color: rgb(44, 43, 43);
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #193047;
+  height: 60px;
+  -moz-border-radius: 75px;
+  -webkit-border-radius: 75px;
+  width: 60px;
+}
+
+#resetButton:hover {
+  background: #fff;
+  box-shadow: 0px 2px 10px 5px #ffe600;
+  color: #000;
+}
+
+#resetButton:after {
+  background: #bb7900;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+  width: 0;
+  height: 0;
+  right: 0;
+  top: 0;
+  border-radius: 0 5px 5px 0;  
+}
+
+#resetButton:active {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+  top: 3px;
+}
+
+#resetButton:focus {
+  outline: 0;
+}
+
+
 
 .dislikeButton {
   text-transform: uppercase;
@@ -73,7 +135,6 @@
 }
 
 .dislikeButton:after {
-  content: "";
   background: #bb0000;
   display: block;
   position: absolute;
@@ -83,13 +144,20 @@
   margin-top: -120%;
   opacity: 0;
   transition: all 0.8s;
+  width: 0;
+  height: 0;
+  right: 0;
+  top: 0;
+  border-radius: 0 5px 5px 0;  
 }
 
-.dislikeButton:active:after {
+.dislikeButton:active {
   padding: 0;
   margin: 0;
   opacity: 1;
   transition: 0s;
+  box-shadow: 0px 2px 0px 0px rgba(0,0,0,.2);
+  top: 3px;
 }
 
 .dislikeButton:focus {

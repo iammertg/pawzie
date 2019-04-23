@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   errorMessage: string;
   successMessage: string;
 
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -44,6 +45,10 @@ export class RegisterComponent implements OnInit {
 
   get _registerForm(): {[key: string]: AbstractControl} {
     return this.registerForm.controls;
+  }
+
+  submitable() {
+    return this.registerForm.status === 'INVALID' ? false : true;
   }
 
   // onSubmit() {

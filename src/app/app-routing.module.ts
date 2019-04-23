@@ -5,7 +5,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ForgotPasswordComponent } from './auth/login/forgot-password/forgot-password.component';
-// import { AuthGuard } from './services/services.guard';
+import { AuthGuard } from './services/services.guard';
+import { SecureInnerPagesGuard } from './services/secure-inner-pages.guard';
 
 const routes: Routes = [
   {
@@ -15,20 +16,27 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [SecureInnerPagesGuard]
   },
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [SecureInnerPagesGuard]
   },
   {
     path: 'main-page',
-    component: MainPageComponent
-    // canActivate:[AuthGuard]
+    component: MainPageComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'forgot-password',
     component: ForgotPasswordComponent,
+    canActivate: [SecureInnerPagesGuard]
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   }
 ];
 

@@ -124,6 +124,7 @@ provider in Firestore database using AngularFirestore + AngularFirestoreDocument
     return this.afAuth.auth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
+      window.location.reload();
     });
   }
 }

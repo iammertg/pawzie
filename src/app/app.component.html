@@ -40,6 +40,42 @@
           Home
         </button>
       </div>
+      <!-- <div>
+        <button
+          id="navbarButton"
+          routerLink="login"
+          style="margin-left: 15px; color: rgba(79, 30, 172, 0.918);"
+        >
+          Login
+        </button>
+      </div> -->
+      <div *ngIf="authService.userData as user; else login">
+          <button
+            id="navbarButton"
+            style="margin-left: 15px; color: rgba(79, 30, 172, 0.918);"
+            (click)="authService.SignOut()"
+          >
+            Logout
+          </button>
+        </div>
+        <ng-template #login>
+            <button
+            id="navbarButton"
+            routerLink="login"
+            style="margin-left: 15px; color: rgba(79, 30, 172, 0.918);"
+          >
+            Login
+          </button>
+        </ng-template>
+      <div>
+        <button
+          id="navbarButton"
+          routerLink="main-page"
+          style="margin-left: 15px; color: rgba(79, 30, 172, 0.918);"
+        >
+          Date
+        </button>
+      </div>
     </div>
 
     <div>
